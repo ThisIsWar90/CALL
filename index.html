@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Phone Call Prank</title>
-    <link rel="stylesheet" href="Styles.css">
+    <title>Prank App</title>
+    <style>
+        #prank-message {
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Prank Your Friends!</h1>
-        <button id="prankButton">Give a Fake Call</button>
-    </div>
+    <h1>Welcome to the Prank!</h1>
+    <div id="prank-message">Surprise! You've been pranked!</div>
 
-    <div id="callScreen" class="hidden">
-        <div class="callScreenContent">
-            <h2>Incoming Call</h2>
-            <p>From: <span id="callerName">John Doe</span></p>
-            <button id="answerButton">Answer</button>
-            <button id="declineButton">Decline</button>
-        </div>
-    </div>
+    <!-- Audio element to play sound -->
+    <audio id="prank-sound" src="assets/spooky-sound.mp3"></audio>
 
-    <script src="Script.js"></script>
+    <script>
+        // Trigger the prank after 3 seconds and play the sound
+        setTimeout(function() {
+            // Show the prank message
+            document.getElementById('prank-message').style.display = 'block';
+
+            // Play the sound
+            document.getElementById('Prank1').play();
+        }, 3000); // 3 seconds
+    </script>
 </body>
 </html>
