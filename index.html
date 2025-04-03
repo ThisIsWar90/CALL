@@ -5,30 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prank App</title>
     <style>
+        /* General Page Style */
+        body {
+            background-color: black;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Style for the loading screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Style for the prank message */
         #prank-message {
             display: none;
             text-align: center;
             font-size: 30px;
             color: red;
         }
+
+        /* Style for the button */
+        #start-prank {
+            display: none; /* Button hidden initially */
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #start-prank:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Prank!</h1>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        Loading... Please wait.
+    </div>
+
+    <!-- Prank message and button -->
     <div id="prank-message">Surprise! You've been pranked!</div>
 
     <!-- Audio element to play sound -->
-    <audio id="prank-sound" src="Prank1.mp3"></audio>
+    <audio id="prank-sound" src="Prank1.mp3" preload="auto"></audio>
+
+    <!-- Button to start the prank -->
+    <button id="start-prank">Click to see the surprise!</button>
 
     <script>
-        // Trigger the prank after 3 seconds and play the sound
+        // Remove loading screen after 3 seconds
         setTimeout(function() {
-            // Show the prank message
-            document.getElementById('prank-message').style.display = 'block';
+            document.getElementById('loading-screen').style.display = 'none'; // Hide loading screen
+            document.getElementById('start-prank').style.display = 'block'; // Show prank button
+        }, 3000); // 3 seconds delay
 
-            // Play the sound
-            document.getElementById('prank-sound').play();
-        }, 3000); // 3 seconds
+        // When the button is clicked, show the prank and play the sound
+        document.getElementById('start-prank').addEventListener('click', function() {
+            document.getElementById('prank-message').style.display = 'block'; // Show prank message
+            document.getElementById('prank-sound').play(); // Play sound
+        });
     </script>
 </body>
 </html>
